@@ -5,7 +5,7 @@ import 'package:cash2/Components/CommandButton.dart';
 
 class RegisterKeypad extends StatelessWidget {
   const RegisterKeypad({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

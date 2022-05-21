@@ -5,7 +5,7 @@ import 'package:cash2/Style/Styles.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -30,24 +30,41 @@ class RegisterScreen extends StatelessWidget {
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[Text('Taxable', style: TextStyles.body.bold), Text(myModel.taxableTotal, style: TextStyles.body)],
+                    children: <Widget>[
+                      Text('Taxable', style: TextStyles.body.bold),
+                      Text(myModel.taxableTotal, style: TextStyles.body)
+                    ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[Text('Tax', style: TextStyles.body.bold), Text(myModel.taxAmount, style: TextStyles.body)],
+                    children: <Widget>[
+                      Text('Tax', style: TextStyles.body.bold),
+                      Text(myModel.taxAmount, style: TextStyles.body)
+                    ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[Text('Total', style: TextStyles.body.bold), Text(myModel.grandTotal, style: TextStyles.body)],
+                    children: <Widget>[
+                      Text('Total', style: TextStyles.body.bold),
+                      Text(myModel.grandTotal, style: TextStyles.body)
+                    ],
                   ),
                 ],
               ),
-              Divider(thickness: 2,),
+              Divider(
+                thickness: 2,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(myModel.quantity, style: (myModel.quantity.length < 3) ? TextStyles.display : TextStyles.body),
-                  Text(myModel.entry, style: (myModel.entry.length < 12) ? TextStyles.display : TextStyles.display2),
+                  Text(myModel.quantity,
+                      style: (myModel.quantity.length < 3)
+                          ? TextStyles.display
+                          : TextStyles.body),
+                  Text(myModel.entry,
+                      style: (myModel.entry.length < 12)
+                          ? TextStyles.display
+                          : TextStyles.display2),
                 ],
               ),
             ],

@@ -3,7 +3,7 @@ import 'package:cash2/register.dart';
 import 'package:provider/provider.dart';
 
 class CommandButton extends StatelessWidget {
-  const CommandButton({Key key, this.command}) : super(key: key);
+  const CommandButton({Key? key, required this.command}) : super(key: key);
   final RegisterCommands command;
 
   @override

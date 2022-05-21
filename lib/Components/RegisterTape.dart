@@ -5,9 +5,8 @@ import 'package:cash2/Style/Styles.dart';
 
 class RegisterTape extends StatelessWidget {
   const RegisterTape({
-    Key key,
+    Key? key,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +21,11 @@ class RegisterTape extends StatelessWidget {
             return Card(
               child: ListTile(
                 dense: true,
-                leading: Text('${myModel.tape.length-i}'),
-                title: Text(myModel.tape[i].displayEach, style: TextStyles.body.bold),
-                trailing: Text(myModel.tape[i].displayAmount, style: TextStyles.body),
+                leading: Text('${myModel.tape.length - i}'),
+                title: Text(myModel.tape[i].displayEach,
+                    style: TextStyles.body.bold),
+                trailing:
+                    Text(myModel.tape[i].displayAmount, style: TextStyles.body),
               ),
             );
           },

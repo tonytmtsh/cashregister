@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +53,7 @@ class CashRegisterType with ChangeNotifier {
 
   ScrollController scrollController = ScrollController();
 
-  List<Tape> tape = List<Tape>();
+  List<Tape> tape = <Tape>[];
 
   String get entry => currency.format(_entry);
   String get quantity => _quantity.toString() + '@';
