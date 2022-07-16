@@ -16,11 +16,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Cash Register',
         home: Scaffold(
-          appBar: AppBar(title: Row(
+          appBar: AppBar(
+              title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Cash Register'),
-              Icon(Icons.exposure),
+              Icon(Icons.monetization_on),
             ],
           )),
           body: Padding(
@@ -38,4 +39,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

@@ -15,7 +15,6 @@ class RegisterScreen extends StatelessWidget {
         return Container(
           color: myModel.error ? Colors.red : Colors.black12,
           padding: EdgeInsets.only(left: 4.0, right: 4.0),
-          height: 120,
           child: Column(
             children: <Widget>[
               Row(
