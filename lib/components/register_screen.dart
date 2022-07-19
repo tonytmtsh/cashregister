@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cash2/register.dart';
-import 'package:cash2/Style/Styles.dart';
+import 'package:cash2/Style/styles.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({
@@ -14,7 +14,7 @@ class RegisterScreen extends StatelessWidget {
       builder: (_, myModel, __) {
         return Container(
           color: myModel.error ? Colors.red : Colors.black12,
-          padding: EdgeInsets.only(left: 4.0, right: 4.0),
+          padding: const EdgeInsets.only(left: 4.0, right: 4.0),
           child: Column(
             children: <Widget>[
               Row(
@@ -50,7 +50,7 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Divider(
+              const Divider(
                 thickness: 2,
               ),
               Row(

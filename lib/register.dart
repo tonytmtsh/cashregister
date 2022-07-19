@@ -35,10 +35,7 @@ class Tape {
   Tape(this.isTaxable, this.quantity, this.amount);
 
   String get displayEach =>
-      numbers.format(quantity) +
-      (isTaxable ? ' taxable' : '') +
-      ' @ ' +
-      currency.format(amount);
+      '${numbers.format(quantity)}${isTaxable ? ' taxable' : ''} @ ${currency.format(amount)}';
   String get displayAmount => currency.format(amount * quantity);
 }
 
@@ -46,8 +43,9 @@ class CashRegisterType with ChangeNotifier {
   double _entry = 0.00;
   double _taxableTotal = 0.00;
   double _nontaxableTotal = 0.00;
-  double _taxRate = 0.06;
   int _quantity = 1;
+
+  final double _taxRate = 0.06;
 
   bool error = false;
 
@@ -56,7 +54,7 @@ class CashRegisterType with ChangeNotifier {
   List<Tape> tape = <Tape>[];
 
   String get entry => currency.format(_entry);
-  String get quantity => _quantity.toString() + '@';
+  String get quantity => '$_quantity@';
   String get taxableTotal => currency.format(_taxableTotal);
   String get nontaxableTotal => currency.format(_nontaxableTotal);
   String get taxAmount => currency.format(tax());
@@ -78,7 +76,7 @@ class CashRegisterType with ChangeNotifier {
   }
 
   void clear() {
-    print('clear');
+    debugPrint('clear');
     _entry = 0.00;
     _quantity = 1;
     error = false;
@@ -90,7 +88,7 @@ class CashRegisterType with ChangeNotifier {
   }
 
   void reset() {
-    print('reset');
+    debugPrint('reset');
     _taxableTotal = 0.00;
     _nontaxableTotal = 0.00;
     tape.clear();
@@ -98,21 +96,21 @@ class CashRegisterType with ChangeNotifier {
   }
 
   void addTaxible() {
-    print('addTaxible');
+    debugPrint('addTaxible');
     _taxableTotal = _taxableTotal + (_entry * _quantity);
     tape.insert(0, Tape(true, _quantity, _entry));
     clear();
   }
 
   void addNonTaxible() {
-    print('addNonTaxible');
+    debugPrint('addNonTaxible');
     _nontaxableTotal = _nontaxableTotal + (_entry * _quantity);
     tape.insert(0, Tape(false, _quantity, _entry));
     clear();
   }
 
   void updateQuantity() {
-    print('quantity');
+    debugPrint('quantity');
     _quantity = int.parse((_entry * 100.0).toStringAsFixed(0));
     _entry = 0.00;
     notifyListeners();

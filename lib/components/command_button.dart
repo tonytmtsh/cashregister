@@ -12,14 +12,15 @@ class CommandButton extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.all(2.0),
-      child: RaisedButton(
-        color: command == RegisterCommands.reset
-            ? Colors.pink
-            : command == RegisterCommands.clear
-                ? Colors.orange
-                : command == RegisterCommands.addNonTaxible
-                    ? Colors.yellow
-                    : Colors.lightBlue,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            primary: command == RegisterCommands.reset
+                ? Colors.pink
+                : command == RegisterCommands.clear
+                    ? Colors.orange
+                    : command == RegisterCommands.addNonTaxible
+                        ? Colors.yellow
+                        : Colors.lightBlue),
         child: Text(commandText(command)),
         onPressed: () {
           switch (command) {

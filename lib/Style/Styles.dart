@@ -23,9 +23,10 @@ class TextStyles {
   static TextStyle get titleLight =>
       title.copyWith(fontWeight: FontWeight.w300);
 
-  static TextStyle get display => titleFont.copyWith(fontSize: FontSizes.display);
-  static TextStyle get display2 => titleFont.copyWith(fontSize: FontSizes.display2);
-
+  static TextStyle get display =>
+      titleFont.copyWith(fontSize: FontSizes.display);
+  static TextStyle get display2 =>
+      titleFont.copyWith(fontSize: FontSizes.display2);
 
   static TextStyle get body =>
       bodyFont.copyWith(fontSize: FontSizes.body, fontWeight: FontWeight.w400);

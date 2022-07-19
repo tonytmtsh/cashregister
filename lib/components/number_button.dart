@@ -11,11 +11,13 @@ class NumberButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(2.0),
-      child: RaisedButton(
-        color: Colors.lightGreen,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: Colors.lightGreen,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        ),
         child: Text(keyValue.toString()),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         onPressed: () {
           CashRegisterType myModel =
               Provider.of<CashRegisterType>(context, listen: false);
