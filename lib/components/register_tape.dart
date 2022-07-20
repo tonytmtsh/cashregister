@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cash2/register.dart';
-import 'package:cash2/Style/styles.dart';
+import 'package:cash2/style/styles.dart';
 
 class RegisterTape extends StatelessWidget {
   const RegisterTape({
