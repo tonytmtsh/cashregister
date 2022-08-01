@@ -64,6 +64,7 @@ class RegisterScreen extends StatelessWidget {
                       style: (myModel.entry.length < 12)
                           ? TextStyles.display
                           : TextStyles.display2),
+                  Text(myModel.taxPercentage),
                 ],
               ),
             ],

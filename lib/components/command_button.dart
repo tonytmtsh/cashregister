@@ -38,6 +38,9 @@ class CommandButton extends StatelessWidget {
               break;
             case RegisterCommands.quantity:
               myModel.updateQuantity();
+              break;
+            case RegisterCommands.setTax:
+              myModel.setTaxRate();
           }
         },
       ),

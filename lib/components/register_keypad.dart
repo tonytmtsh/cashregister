@@ -53,11 +53,16 @@ class RegisterKeypad extends StatelessWidget {
           flex: 2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: const <Widget>[
-              CommandButton(command: RegisterCommands.reset),
-              CommandButton(command: RegisterCommands.clear),
-              CommandButton(command: RegisterCommands.addNonTaxible),
-              CommandButton(command: RegisterCommands.addTaxible),
+            children: <Widget>[
+              const CommandButton(command: RegisterCommands.reset),
+              const CommandButton(command: RegisterCommands.clear),
+              const CommandButton(command: RegisterCommands.addNonTaxible),
+              Row(
+                children: const [
+                  CommandButton(command: RegisterCommands.setTax),
+                  CommandButton(command: RegisterCommands.addTaxible),
+                ],
+              ),
             ],
           ),
         ),

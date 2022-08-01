@@ -1,10 +1,19 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:cash2/services/savedprefs.dart';
 
-enum RegisterCommands { reset, clear, addTaxible, addNonTaxible, quantity }
+enum RegisterCommands {
+  reset,
+  clear,
+  addTaxible,
+  addNonTaxible,
+  quantity,
+  setTax
+}
 
 final currency = NumberFormat.simpleCurrency(locale: "en_US");
 final numbers = NumberFormat('#,##0');
+final precentage = NumberFormat('#,##0.00%');
 
 String commandText(RegisterCommands x) {
   String text = "";
@@ -23,6 +32,9 @@ String commandText(RegisterCommands x) {
       break;
     case RegisterCommands.quantity:
       text = "@";
+      break;
+    case RegisterCommands.setTax:
+      text = "set tax rate";
   }
   return text;
 }
@@ -44,14 +56,22 @@ class CashRegisterType with ChangeNotifier {
   double _taxableTotal = 0.00;
   double _nontaxableTotal = 0.00;
   int _quantity = 1;
-
-  final double _taxRate = 0.06;
+  double? _taxRate;
 
   bool error = false;
 
   ScrollController scrollController = ScrollController();
 
   List<Tape> tape = <Tape>[];
+
+  double get taxRate {
+    if (_taxRate == null) {
+      loadTax();
+    }
+    return _taxRate ?? 0.00;
+  }
+
+  String get taxPercentage => precentage.format(_taxRate ?? 0.00);
 
   String get entry => currency.format(_entry);
   String get quantity => '$_quantity@';
@@ -62,7 +82,14 @@ class CashRegisterType with ChangeNotifier {
       currency.format(_taxableTotal + tax() + _nontaxableTotal);
 
   double tax() {
-    return double.parse((_taxableTotal * _taxRate).toStringAsFixed(2));
+    return double.parse(
+        (_taxableTotal * (_taxRate ?? 0.00)).toStringAsFixed(2));
+  }
+
+  void setTaxRate() {
+    _taxRate = _entry / 100.00;
+    updateTax();
+    clear();
   }
 
   void addEntry(int keyValue) {
@@ -114,5 +141,15 @@ class CashRegisterType with ChangeNotifier {
     _quantity = int.parse((_entry * 100.0).toStringAsFixed(0));
     _entry = 0.00;
     notifyListeners();
+  }
+
+  void loadTax() {
+    debugPrint('loadTax');
+    SavedPreferencesService.getTaxRate().then((value) => {_taxRate = value});
+  }
+
+  void updateTax() {
+    debugPrint('updateTax');
+    SavedPreferencesService.setTaxRate(_taxRate ?? 0.00);
   }
 }
