@@ -64,10 +64,11 @@ class CashRegisterType with ChangeNotifier {
 
   List<Tape> tape = <Tape>[];
 
+  CashRegisterType() {
+    loadTax();
+  }
+
   double get taxRate {
-    if (_taxRate == null) {
-      loadTax();
-    }
     return _taxRate ?? 0.00;
   }
 
