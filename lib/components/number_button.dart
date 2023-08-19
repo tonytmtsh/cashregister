@@ -13,7 +13,7 @@ class NumberButton extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.lightGreen,
+          backgroundColor: Colors.lightGreen,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         ),

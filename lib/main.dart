@@ -19,17 +19,17 @@ class MyApp extends StatelessWidget {
         title: 'Cash Register',
         home: Scaffold(
           appBar: AppBar(
-              title: Row(
+              title: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const <Widget>[
+            children: <Widget>[
               Text('Cash Register'),
               Icon(Icons.monetization_on),
             ],
           )),
-          body: Padding(
-            padding: const EdgeInsets.all(4.0),
+          body: const Padding(
+            padding: EdgeInsets.all(4.0),
             child: Column(
-              children: const <Widget>[
+              children: <Widget>[
                 RegisterTape(),
                 RegisterScreen(),
                 RegisterKeypad(),
