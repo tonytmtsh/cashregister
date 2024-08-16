@@ -10,15 +10,15 @@ class RegisterKeypad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       children: <Widget>[
         Expanded(
-            flex: 2,
+            flex: 4,
             child: Column(
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const <Widget>[
+                  children: <Widget>[
                     NumberButton(keyValue: 7),
                     NumberButton(keyValue: 8),
                     NumberButton(keyValue: 9),
@@ -26,7 +26,7 @@ class RegisterKeypad extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const <Widget>[
+                  children: <Widget>[
                     NumberButton(keyValue: 4),
                     NumberButton(keyValue: 5),
                     NumberButton(keyValue: 6),
@@ -34,7 +34,7 @@ class RegisterKeypad extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const <Widget>[
+                  children: <Widget>[
                     NumberButton(keyValue: 1),
                     NumberButton(keyValue: 2),
                     NumberButton(keyValue: 3),
@@ -42,7 +42,7 @@ class RegisterKeypad extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const <Widget>[
+                  children: <Widget>[
                     CommandButton(command: RegisterCommands.quantity),
                     NumberButton(keyValue: 0),
                   ],
@@ -50,10 +50,10 @@ class RegisterKeypad extends StatelessWidget {
               ],
             )),
         Expanded(
-          flex: 2,
+          flex: 3,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: const <Widget>[
+            children: <Widget>[
               CommandButton(command: RegisterCommands.reset),
               CommandButton(command: RegisterCommands.clear),
               CommandButton(command: RegisterCommands.addNonTaxible),

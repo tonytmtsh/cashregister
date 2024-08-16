@@ -14,7 +14,7 @@ class RegisterScreen extends StatelessWidget {
       builder: (_, myModel, __) {
         return Container(
           color: myModel.error ? Colors.red : Colors.black12,
-          padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+          padding: const EdgeInsets.only(left: 2.0, right: 2.0),
           child: Column(
             children: <Widget>[
               Row(

@@ -11,10 +11,10 @@ class CommandButton extends StatelessWidget {
     final myModel = Provider.of<CashRegisterType>(context, listen: false);
 
     return Padding(
-      padding: const EdgeInsets.all(2.0),
+      padding: const EdgeInsets.all(1.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            primary: command == RegisterCommands.reset
+            backgroundColor: command == RegisterCommands.reset
                 ? Colors.pink
                 : command == RegisterCommands.clear
                     ? Colors.orange
