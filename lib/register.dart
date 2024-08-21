@@ -27,12 +27,12 @@ String commandText(RegisterCommands x) {
   return text;
 }
 
-class Tape {
+class TapeEntry {
   bool isTaxable;
   int quantity;
   double amount;
 
-  Tape(this.isTaxable, this.quantity, this.amount);
+  TapeEntry(this.isTaxable, this.quantity, this.amount);
 
   String get displayEach =>
       '${numbers.format(quantity)}${isTaxable ? ' taxable' : ''} @ ${currency.format(amount)}';
@@ -51,7 +51,7 @@ class CashRegisterType with ChangeNotifier {
 
   ScrollController scrollController = ScrollController();
 
-  List<Tape> tape = <Tape>[];
+  List<TapeEntry> tape = <TapeEntry>[];
 
   String get entry => currency.format(_entry);
   String get quantity => '$_quantity@';
@@ -98,14 +98,14 @@ class CashRegisterType with ChangeNotifier {
   void addTaxible() {
     debugPrint('addTaxible');
     _taxableTotal = _taxableTotal + (_entry * _quantity);
-    tape.insert(0, Tape(true, _quantity, _entry));
+    tape.insert(0, TapeEntry(true, _quantity, _entry));
     clear();
   }
 
   void addNonTaxible() {
     debugPrint('addNonTaxible');
     _nontaxableTotal = _nontaxableTotal + (_entry * _quantity);
-    tape.insert(0, Tape(false, _quantity, _entry));
+    tape.insert(0, TapeEntry(false, _quantity, _entry));
     clear();
   }
 
